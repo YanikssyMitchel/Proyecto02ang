@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <input
+    type="text"
+    class="form-control mb-3"
+    [(ngModel)]="Buscar"
+    (input)="BuscarPaises()"
+    placeholder="Buscar país"
+  />
+  
+
+  <div class="form-group mb-3">
+    <label for="regionSelect">Selecciona una región</label>
+    <select
+      class="form-control"
+      id="regionSelect"
+      [(ngModel)]="regionSeleccionada"
+      (change)="cambiarRegion()"
+    >
+      <option *ngFor="let region of regiones" [value]="region">{{ region }}</option>
+    </select>
+  </div>
+  
+  
+  <div class="row">
+    <div class="col-12 col-md-4" *ngFor="let country of paises">
+      <div class="card">
+        <img [src]="country.flags.png" class="img-fluid mb-3" alt="Flag" />
+        <div class="card-body">
+          <h5 class="card-title">{{ country.name.common }}</h5>
+          <p class="card-text">Capital: {{ country.capital }}</p>
+          <button class="btn btn-primary" (click)="AbrirModal(modalContent, country)">
+            Ver Detalles
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <ng-template #modalContent let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">{{ PaisSeleccionado?.name?.common }}</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.close()"></button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <img [src]="PaisSeleccionado?.flags?.png" alt="Bandera de {{ PaisSeleccionado?.name?.common }}" class="img-fluid mb-3">
+        <p><strong>Capital:</strong> {{ PaisSeleccionado?.capital }}</p>
+        <p><strong>Población:</strong> {{ PaisSeleccionado?.population }}</p>
+        <p><strong>Región:</strong> {{ PaisSeleccionado?.region }}</p>
+      </div>
+    </div>
+  </ng-template>
+</div>

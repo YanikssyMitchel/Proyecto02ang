@@ -1,0 +1,12 @@
+.navbar {
+    font-family: 'Times New Roman', serif;
+    font-size: 20px;
+}
+  
+.navbar-brand {
+    font-size: 30px; 
+}
+  
+.navbar-nav .nav-link {
+    font-size: 20px;
+}
