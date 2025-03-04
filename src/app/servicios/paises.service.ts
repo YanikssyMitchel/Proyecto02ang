@@ -26,12 +26,12 @@ export class PaisesService {
 
   constructor(private http: HttpClient) {}
 
-  // Método para obtener todos los países
+ 
   ObtenerPaises(): Observable<Country[]> {
     return this.http.get<Country[]>(this.apiUrl);
   }
 
-  // Método para buscar un país por nombre
+ 
   BuscarPais(name: string): Observable<Country[]> {
     return this.http.get<Country[]>(`https://restcountries.com/v3.1/name/${name}`);
   }

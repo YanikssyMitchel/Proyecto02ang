@@ -24,7 +24,7 @@ export class ListaPaisesComponent {
     });
   }
 
-  // Método para filtrar países según el texto de búsqueda
+  
   BuscarPaises(): void {
     if (this.Buscar) {
       this.PaisesService.BuscarPais(this.Buscar).subscribe((data) => {
@@ -37,7 +37,7 @@ export class ListaPaisesComponent {
     }
   }
 
-  // Método para abrir el modal con la información del país seleccionado
+  
   AbrirModal(content: any, country: Country): void {
     this.PaisSeleccionado = country;
     this.modalService.open(content, { size: 'lg' });
